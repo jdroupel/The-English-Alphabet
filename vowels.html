@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alphabet</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --device: #111827;
+      --screen: #0b1220;
+      --primary: #2563eb;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --ring: 0 0 0 3px rgba(37, 99, 235, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background:
+        radial-gradient(1200px 600px at 20% 10%, #1f2937 0%, #0b1020 40%, #05060a 100%),
+        var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      display: grid;
+      place-items: center;
+    }
+
+    .phone {
+      position: relative;
+      width: min(92vw, 380px);
+      aspect-ratio: 12 / 17;
+      border-radius: 28px;
+      padding: 14px;
+      background: linear-gradient(145deg, #0d1117, #1b2332);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+      display: grid;
+    }
+
+    .screen {
+      border-radius: 22px;
+      background: radial-gradient(800px 400px at 20% 0%, #0f172a 0%, #0a1222 40%, #070b14 100%);
+      padding: 20px 18px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: 16px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+
+    .statusbar { height: 10px; display: grid; place-items: center; }
+    .notch {
+      width: 40%;
+      height: 8px;
+      background: #0b101a;
+      border-radius: 0 0 10px 10px;
+      margin: 0 auto;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .header { text-align: center; }
+    .title {
+      font-size: clamp(20px, 3.8vw, 24px);
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .subtitle {
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 8px;
+      align-content: center;
+    }
+
+    .button {
+      display: block;
+      appearance: none;
+      border: none;
+      border-radius: 14px;
+      padding: 18px 20px;
+      font-size: clamp(16px, 4.2vw, 18px);
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(180deg, #2563eb, #1e40af);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      transition: transform 0.05s ease, filter 0.2s ease, box-shadow 0.2s ease;
+      text-align: center;
+      text-decoration: none; /* para <a> también */
+    }
+    .button.secondary {
+	  width:45%;
+	  float:left;
+      background: linear-gradient(180deg, #0ea5e9, #0369a1);
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+    .button.tertiary {
+      background: linear-gradient(180deg, #10b981, #0f766e);
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.35), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+    .button:active {
+      transform: translateY(1px) scale(0.995);
+      filter: brightness(0.97);
+    }
+    .button:focus-visible {
+      outline: none;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35), var(--ring);
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      padding-bottom: 6px;
+    }
+
+    @media (min-height: 700px) {
+      .screen { padding: 22px 20px; }
+      .buttons { gap: 16px; }
+    }
+  </style>
+   <script>
+    function vowel_a() {
+		   var snd = new Audio("a.mp3");
+		   snd.play();
+	}
+    function vowel_e() {
+		   var snd = new Audio("e.mp3");
+		   snd.play();
+    }
+    function vowel_i() {
+		   var snd = new Audio("i.mp3");
+		   snd.play();
+    }
+    function vowel_o() {
+		   var snd = new Audio("o.mp3");
+		   snd.play();
+    }
+    function vowel_u() {
+		   var snd = new Audio("u.mp3");
+		   snd.play();
+    }
+  </script>
+</head>
+<body>
+  <main class="phone" aria-label="Dispositivo móvil simulado">
+    <section class="screen" role="region" aria-label="Pantalla">
+      <div class="statusbar" aria-hidden="true">
+        <div class="notch"></div>
+      </div>
+
+      <header class="header">
+        <h1 class="title">Vowels</h1>
+      </header>
+     <div class="buttons" aria-label="Acciones principales">
+		<button class="button secondary"onclick="vowel_a()">a</button>
+		<button class="button secondary"onclick="vowel_e()">e</button>
+		<button class="button secondary"onclick="vowel_i()">i</button>
+		<button class="button secondary"onclick="vowel_o()">o</button>
+		<button class="button secondary"onclick="vowel_u()">u</button>
+       </div>
+		<center>
+		<div class="button" aria-label="Acciones principales">
+			<a href="index.html" class="button"> Back</a>
+		</div>
+		</center>
+      <div class="footer">Hecho con HTML + CSS + Javascript<br>Prof. Jaime Romero</div>
+    </section>
+  </main>
+</body>
+</html>
